@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import filterData from "../filterData/index.vue"
-import mapComponent from "../map/index.vue"
+import filterData from "../filterData/index.vue";
+import mapComponent from "../map/index.vue";
 const drawerRight = ref(false);
 </script>
 
@@ -10,7 +10,12 @@ const drawerRight = ref(false);
     <q-layout>
       <q-header>
         <q-toolbar>
-          <q-toolbar-title>Header</q-toolbar-title>
+          <q-toolbar-title>
+            <div class="flex items-center">
+              <div class="q-mr-sm">QalamX</div>
+              <img src="/logo.png" alt="logo qalam X" height="30" width="30" />
+            </div>
+          </q-toolbar-title>
           <q-btn
             flat
             @click="drawerRight = !drawerRight"
@@ -22,12 +27,16 @@ const drawerRight = ref(false);
 
           <ul class="tabs-list">
             <li class="tabs-item">
-              <div class="tabs-item-text">Map</div>
+              <div class="tabs-item-text">
+                <a href="#map">Map</a>
+              </div>
             </li>
           </ul>
           <ul>
             <li class="tabs-item">
-              <div class="tabs-item-text">Filter data</div>
+              <div class="tabs-item-text">
+                <a href="#filterData">Filter data</a>
+              </div>
             </li>
           </ul>
           <ul>
@@ -57,7 +66,7 @@ const drawerRight = ref(false);
       <q-page-container>
         <q-page padding class="page-container">
           <mapComponent />
-         <filterData />
+          <filterData />
         </q-page>
       </q-page-container>
     </q-layout>
@@ -65,8 +74,11 @@ const drawerRight = ref(false);
 </template>
 
 <style lang="scss" scoped>
-
-.page-container{
+a {
+  text-decoration: none;
+  color: white;
+}
+.page-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -88,7 +100,7 @@ const drawerRight = ref(false);
   cursor: pointer;
   margin-right: 20px;
   display: inline-block;
-  @media (max-width: 700px) { 
+  @media (max-width: 700px) {
     display: none;
   }
 }

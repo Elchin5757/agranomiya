@@ -5,8 +5,20 @@ const tab = ref("weather");
 </script>
 
 <template>
-  <div class="map-container">
-    <q-tab-panels
+  <div class="map-container" id="map">
+    <iframe
+      style="
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        width: 100%;
+        border: none;
+        top: -100px;
+      "
+      src="https://old.assalomagro.uz/ru/services/map/3"
+    />
+    <!-- <q-tab-panels
       v-model="tab"
       transition-prev="none"
       transition-next="none"
@@ -18,22 +30,10 @@ const tab = ref("weather");
         class="q-pa-none"
         style="position: relative"
       >
-        <iframe
-          style="
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            height: 100%;
-            border: none;
-            top: 0;
-          "
-          src="https://www.ventusky.com/ru"
-          width="100%"
-        />
+
       </q-tab-panel>
-    </q-tab-panels>
-    <q-tabs
+    </q-tab-panels> -->
+    <!-- <q-tabs
       v-model="tab"
       inline-label
       class="bg-secondary text-white shadow-2 tabs"
@@ -44,13 +44,15 @@ const tab = ref("weather");
       <q-tab name="weather" label="Ob havo" />
       <q-tab name="farmers" label="Fermerlar" />
       <q-tab name="stations" label="Stantsiyalar" />
-    </q-tabs>
+    </q-tabs> -->
   </div>
 </template>
 
 <style>
 .map-container {
   position: relative;
+  width: 100%;
+  height: 100vh;
 }
 .tab-panels {
   height: calc(100vh - 70px);
