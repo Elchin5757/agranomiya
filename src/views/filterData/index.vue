@@ -6,6 +6,8 @@ const station = ref("");
 const product = ref("");
 const pest = ref("");
 const text = ref("");
+const name = ref("");
+const number = ref("");
 
 const regions = [
   "Andijon",
@@ -36,9 +38,9 @@ const stations = [
   "station 6",
 ];
 
-const products = ["Paxta", "Sholi"];
+const products = ["Хлопок"];
 
-const pests = ["Tok ipak qurti", "Olma kuyasi"];
+const pests = ["Хлопковая Совка"];
 
 const rows = [
   {
@@ -120,7 +122,7 @@ const columns: any = [
       dark
       v-model="region"
       :options="regions"
-      label="Viloyatni tanlang"
+      label="Выберите регион"
       outlined
       square
     />
@@ -130,7 +132,7 @@ const columns: any = [
       :disable="!region"
       v-model="destrict"
       :options="districts"
-      label="Tumanni tanlang"
+      label="Выберите район"
       outlined
       square
     />
@@ -140,7 +142,7 @@ const columns: any = [
       :disable="!destrict"
       v-model="station"
       :options="stations"
-      label="Stantsiyani tanlang"
+      label="Выберите станцию"
       outlined
       square
     />
@@ -150,7 +152,7 @@ const columns: any = [
       :disable="!station"
       v-model="product"
       :options="products"
-      label="Maxsulot nomini tanlang"
+      label="Выберите название продукта"
       outlined
       square
     />
@@ -160,7 +162,7 @@ const columns: any = [
       :disable="!product"
       v-model="pest"
       :options="pests"
-      label="Zararkunanda nomini tanlang"
+      label="Выберите название вредителя"
       outlined
       square
     />
@@ -223,7 +225,26 @@ const columns: any = [
   </div>
   <div class="solutions-container">
     <div class="solutions-container__paragraph">
-      <span class="text-bold">Инфо:</span>
+      <span class="text-bold">Инфо Хлопковая Совка:</span>
+      <div class="block">
+        <img
+          src="@/assets/images/9b7283b2-ef6b-4d17-a5f9-adf92b7fcb70.webp"
+          alt="img-1"
+        />
+        <img src="@/assets/images/кўсак қурти (2).png" alt="img-2" />
+        <img
+          src="@/assets/images/9fa35d45-12e3-4a8c-aa11-62316b55b926.webp"
+          alt="img-3"
+        />
+        <img
+          src="@/assets/images/f2a83ab9-8d4d-44e0-aa2d-5f89385a421d.webp"
+          alt="img-4"
+        />
+        <img
+          src="@/assets/images/9b7283b2-ef6b-4d17-a5f9-adf92b7fcb70.webp"
+          alt="img-5"
+        />
+      </div>
       Анестезия является основным вредителем хлопка и питается 120 видами
       растений, особенно в областях хлопка, помидоров, баклажанов, нута, мха,
       соевых бобов и кукурузы. Развитие одного поколения вредителей может
@@ -345,19 +366,65 @@ const columns: any = [
   </div>
   <div class="contact-container">
     <div class="contact-title">Отправить заявку агроному</div>
-    <q-input v-model="text" filled placeholder="Напишите текст" type="textarea" dark class="full-width" />
-    <q-btn color="secondary" label="Отправить" text-color="positive" class="full-width q-mt-sm" />
+    <div>
+      <!-- <div class="contact-info">
+        <div class="text-bold text-white" style="font-size: 24px;">Контакт</div>
+      </div> -->
+      <div class="contact-form">
+        <q-input
+          v-model="name"
+          label="Напишите свое имя"
+          style="width: 600px"
+          dark
+          color="white"
+        />
+        <q-input
+          v-model="number"
+          label="Напишите свой номер телефона"
+          placeholder="+998 ( ) --- -- --"
+          style="width: 600px"
+          dark
+          color="white"
+        />
+        <q-input
+          v-model="text"
+          filled
+          placeholder="Напишите текст"
+          type="textarea"
+          dark
+          style="width: 600px"
+        />
+        <q-btn
+          color="secondary"
+          label="Отправить"
+          text-color="positive"
+          class="q-mt-sm"
+          style="width: 600px"
+          size="18px"
+        />
+      </div>
+    </div>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.contact-container{
+.contact-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-form {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  widows: 100%;
+  align-items: start;
+  padding: 0 auto;
+  gap: 10px;
 }
-.contact-title{
+
+.contact-info {
+}
+.contact-title {
   font-size: 27px;
   font-weight: 600;
   color: $positive;
