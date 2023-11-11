@@ -12,7 +12,7 @@ const drawerRight = ref(false);
         <q-toolbar>
           <q-toolbar-title>
             <div class="flex items-center">
-              <div class="q-mr-sm">QalamX</div>
+              <div class="q-mr-sm">My Agro</div>
               <img src="/logo.png" alt="logo qalam X" height="30" width="30" />
             </div>
           </q-toolbar-title>
