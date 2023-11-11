@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import filterData from "../filterData/index.vue"
-
+import mapComponent from "../map/index.vue"
 const drawerRight = ref(false);
 </script>
 
@@ -55,7 +55,8 @@ const drawerRight = ref(false);
       </q-drawer>
 
       <q-page-container>
-        <q-page padding>
+        <q-page padding class="page-container">
+          <mapComponent />
          <filterData />
         </q-page>
       </q-page-container>
@@ -64,6 +65,12 @@ const drawerRight = ref(false);
 </template>
 
 <style lang="scss" scoped>
+
+.page-container{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
 .drawer-toggle {
   display: inline-block;
   @media (min-width: 700px) {

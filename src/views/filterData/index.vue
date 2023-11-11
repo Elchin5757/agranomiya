@@ -37,7 +37,7 @@ const stations = [
 
 const products = ["Paxta", "Sholi"];
 
-const pests = ["G'ovak qurti", "Chuvalchang"];
+const pests = ["Tok ipak qurti", "Olma kuyasi"];
 
 const rows = [
   {
@@ -179,27 +179,27 @@ const columns: any = [
       </div>
       <div class="statistic-cards__card">
         <span class="statistic-cards__card--title">Faoydali harorat</span>
-        <div class="statistic-cards__card--value">618 C</div>
+        <div class="statistic-cards__card--value text-negative">618 C</div>
       </div>
       <div class="statistic-cards__card">
         <span class="statistic-cards__card--title">Rivojlanish kuni</span>
-        <div class="statistic-cards__card--value">80 kun</div>
+        <div class="statistic-cards__card--value text-negative">80 kun</div>
       </div>
       <div class="statistic-cards__card">
         <span class="statistic-cards__card--title">Avlodlar soni</span>
-        <div class="statistic-cards__card--value">2 avlod</div>
+        <div class="statistic-cards__card--value text-negative">2 avlod</div>
       </div>
       <div class="statistic-cards__card">
         <span class="statistic-cards__card--title">Tuhumdan chiqi...</span>
-        <div class="statistic-cards__card--value">100 %</div>
+        <div class="statistic-cards__card--value text-negative">100%</div>
       </div>
       <div class="statistic-cards__card">
         <span class="statistic-cards__card--title">G'umbakka aylan...</span>
-        <div class="statistic-cards__card--value">100%</div>
+        <div class="statistic-cards__card--value text-negative">100%</div>
       </div>
       <div class="statistic-cards__card">
         <span class="statistic-cards__card--title">G'umbakdan chi...</span>
-        <div class="statistic-cards__card--value">53%</div>
+        <div class="statistic-cards__card--value text-warning">53%</div>
       </div>
       <div class="statistic-cards__card">
         <span class="statistic-cards__card--title">Yetuk zotga ayl...</span>
@@ -221,7 +221,7 @@ const columns: any = [
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
-  // max-height: ;
+  min-height: 340px;
 }
 
 .statistic-cards {
@@ -233,7 +233,7 @@ const columns: any = [
   &__card {
     width: 100%;
     height: 100%;
-    background-color: #000;
+    background-color: $secondary;
     color: white;
     border-radius: 5px;
     display: flex;
@@ -241,7 +241,7 @@ const columns: any = [
     justify-content: start;
     align-items: center;
     padding: 10px 10px 20px 10px;
-    border: 1px solid $primary;
+    border: 1px solid $accent;
 
     &--title {
       font-size: 14px;
