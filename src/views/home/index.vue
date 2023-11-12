@@ -31,17 +31,10 @@ const drawerRight = ref(false);
                 <a href="#map">Map</a>
               </div>
             </li>
-          </ul>
-          <ul>
             <li class="tabs-item">
               <div class="tabs-item-text">
                 <a href="#filterData">Filter data</a>
               </div>
-            </li>
-          </ul>
-          <ul>
-            <li class="tabs-item">
-              <div class="tabs-item-text">Ensklopedia</div>
             </li>
           </ul>
         </q-toolbar>
@@ -77,11 +70,6 @@ const drawerRight = ref(false);
 a {
   text-decoration: none;
   color: white;
-}
-.page-container {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
 }
 .drawer-toggle {
   display: inline-block;

@@ -12,6 +12,7 @@
   "dependencies": {
     "@quasar/extras": "^1.16.8",
     "@quasar/vite-plugin": "^1.6.0",
+    "axios": "^1.6.1",
     "pinia": "^2.1.7",
     "quasar": "^2.13.1",
     "vue": "^3.3.4",
