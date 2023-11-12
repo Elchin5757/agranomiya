@@ -47,11 +47,18 @@ const drawerRight = ref(false);
         bordered
         :width="200"
         :breakpoint="20000"
-        :class="$q.dark.isActive ? 'bg-grey-9' : 'bg-grey-3'"
+        class="bg-black"
       >
         <q-scroll-area class="fit">
           <div class="q-pa-sm">
-            <div v-for="n in 50" :key="n">Drawer {{ n }} / 50</div>
+            <ul class="drawer-tabs">
+              <li class="text-white drawer-tabs-tab">
+                  <a href="#map">Map</a>
+              </li>
+              <li class="text-white drawer-tabs-tab">
+                  <a href="#filterData">Filter data</a>
+              </li>
+            </ul>
           </div>
         </q-scroll-area>
       </q-drawer>
@@ -67,6 +74,10 @@ const drawerRight = ref(false);
 </template>
 
 <style lang="scss" scoped>
+.drawer-tabs-tab{
+  color: white;
+  font-size: 17px;
+}
 a {
   text-decoration: none;
   color: white;

@@ -69,6 +69,7 @@ function getTableData(data: any) {
         :rows="rows"
         :columns="columns"
         row-key="name"
+        style="min-width: 2-300px"
         rows-per-page-label="Har bir sahifadagi qatorlar:"
       />
       <div class="statistic-cards">
@@ -292,32 +293,31 @@ function getTableData(data: any) {
           <q-input
             v-model="name"
             label="Напишите свое имя"
-            style="width: 600px"
             dark
             color="white"
+            class="input-width"
           />
           <q-input
             v-model="number"
             label="Напишите свой номер телефона"
             placeholder="+998 ( ) --- -- --"
-            style="width: 600px"
             dark
             color="white"
+            class="input-width"
           />
           <q-input
             v-model="text"
             filled
             placeholder="Напишите текст"
             type="textarea"
+            class="input-width"
             dark
-            style="width: 600px"
           />
           <q-btn
             color="secondary"
             label="Отправить"
             text-color="positive"
-            class="q-mt-sm"
-            style="width: 600px"
+            class="q-mt-sm input-width"
             size="18px"
           />
         </div>
@@ -327,6 +327,12 @@ function getTableData(data: any) {
 </template>
 
 <style lang="scss" scoped>
+.input-width {
+  width: 600px;
+  @media (max-width: 900) {
+    width: 300px;
+  }
+}
 .contact-container {
   display: flex;
   align-items: center;
@@ -341,6 +347,10 @@ function getTableData(data: any) {
   align-items: start;
   padding: 0 auto;
   gap: 10px;
+
+  @media (max-width: 900px) {
+    width: 100px;
+  }
 }
 
 .contact-contact {
@@ -359,6 +369,10 @@ function getTableData(data: any) {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 }
 
 .contact-info {
@@ -391,6 +405,12 @@ function getTableData(data: any) {
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   min-height: 340px;
+  max-width: 100vw;
+
+  @media (max-width: 900px) {
+    min-height: auto;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 .statistic-cards {
@@ -398,6 +418,11 @@ function getTableData(data: any) {
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 2;
   gap: 5px;
+
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: 5;
+  }
 
   &__card {
     width: 100%;

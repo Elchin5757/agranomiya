@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useGet } from "@/api/index.ts"
-import { onMounted } from "vue"
+import { useGet } from "@/api/index.ts";
+import { onMounted } from "vue";
 import { ref } from "vue";
 
-const emits = defineEmits(['filtered'])
+const emits = defineEmits(["filtered"]);
 
 const region = ref();
 const destrict = ref();
@@ -13,44 +13,44 @@ const pest = ref();
 
 const regions = ref([]);
 
-const districts = ref([])
+const districts = ref([]);
 
-const stations = ref([])
+const stations = ref([]);
 
-const products = ref([])
+const products = ref([]);
 
-const pests = ref([])
+const pests = ref([]);
 
-onMounted(()=> {
+onMounted(() => {
   useGet({
-    url: "viloyat"
-  }).then((res: any)=> {
-    regions.value = res.data
-  })
+    url: "viloyat",
+  }).then((res: any) => {
+    regions.value = res.data;
+  });
   useGet({
-    url: "tuman"
-  }).then((res: any)=> {
-    districts.value = res.data
-  })
+    url: "tuman",
+  }).then((res: any) => {
+    districts.value = res.data;
+  });
   useGet({
-    url: "stansiya"
-  }).then((res: any)=> {
-    stations.value = res.data
-  })
+    url: "stansiya",
+  }).then((res: any) => {
+    stations.value = res.data;
+  });
   useGet({
-    url: "osimlik"
-  }).then((res: any)=> {
-    products.value = res.data
-  })
+    url: "osimlik",
+  }).then((res: any) => {
+    products.value = res.data;
+  });
   useGet({
-    url: "hashorot"
-  }).then((res: any)=> {
-    pests.value = res.data
-  })
-})
+    url: "hashorot",
+  }).then((res: any) => {
+    pests.value = res.data;
+  });
+});
 
-function filterData(){
-  if(pest.value){
+function filterData() {
+  if (pest.value) {
     useGet({
       url: "datahashorot",
       params: {
@@ -58,11 +58,11 @@ function filterData(){
         tuman: destrict.value.id,
         stansiya: station.value.id,
         osimlik_nomi: product.value.id,
-        hashorot: pest.value.id
-      }
-    }).then((res: any)=> {
-      emits('filtered', res.data)
-    })
+        hashorot: pest.value.id,
+      },
+    }).then((res: any) => {
+      emits("filtered", res.data);
+    });
   }
 }
 </script>
@@ -142,5 +142,8 @@ function filterData(){
   grid-template-columns: repeat(5, 1fr);
   gap: 25px;
   margin-bottom: 15px;
+  @media (max-width: 900px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 </style>
