@@ -57,6 +57,12 @@ function getTableData(data: any) {
     cardsData.value = {};
   }
 }
+
+function onSubmit() {
+  text.value = "";
+  name.value = "";
+  number.value = "";
+}
 </script>
 
 <template>
@@ -69,7 +75,7 @@ function getTableData(data: any) {
         :rows="rows"
         :columns="columns"
         row-key="name"
-        style="min-width: 2-300px"
+        style="min-width: 300px"
         rows-per-page-label="Har bir sahifadagi qatorlar:"
       />
       <div class="statistic-cards">
@@ -80,6 +86,7 @@ function getTableData(data: any) {
           <span class="statistic-cards__card--title">Уровен риска</span>
           <div class="statistic-cards__card--value">
             {{ cardsData?.summa || "0 %" }}
+            406.5 °C
           </div>
         </div>
         <div class="statistic-cards__card">
@@ -289,38 +296,41 @@ function getTableData(data: any) {
             <div class="contact-contact--value">+998 (99) 813 07 17</div>
           </div>
         </div>
-        <div class="contact-form">
-          <q-input
-            v-model="name"
-            label="Напишите свое имя"
-            dark
-            color="white"
-            class="input-width"
-          />
-          <q-input
-            v-model="number"
-            label="Напишите свой номер телефона"
-            placeholder="+998 ( ) --- -- --"
-            dark
-            color="white"
-            class="input-width"
-          />
-          <q-input
-            v-model="text"
-            filled
-            placeholder="Напишите текст"
-            type="textarea"
-            class="input-width"
-            dark
-          />
-          <q-btn
-            color="secondary"
-            label="Отправить"
-            text-color="positive"
-            class="q-mt-sm input-width"
-            size="18px"
-          />
-        </div>
+        <q-form @submit="onSubmit">
+          <div class="contact-form">
+            <q-input
+              v-model="name"
+              label="Напишите свое имя"
+              dark
+              color="white"
+              class="input-width"
+            />
+            <q-input
+              v-model="number"
+              label="Напишите свой номер телефона"
+              placeholder="+998 ( ) --- -- --"
+              dark
+              color="white"
+              class="input-width"
+            />
+            <q-input
+              v-model="text"
+              filled
+              placeholder="Напишите текст"
+              type="textarea"
+              class="input-width"
+              dark
+            />
+            <q-btn
+              color="secondary"
+              label="Отправить"
+              text-color="positive"
+              class="q-mt-sm input-width"
+              size="18px"
+              type="submit"
+            />
+          </div>
+        </q-form>
       </div>
     </div>
   </div>
@@ -329,8 +339,9 @@ function getTableData(data: any) {
 <style lang="scss" scoped>
 .input-width {
   width: 600px;
-  @media (max-width: 900) {
-    width: 300px;
+  @media (max-width: 900px) {
+    width: calc(100vw - 20px);
+    min-width: 350px;
   }
 }
 .contact-container {
@@ -347,10 +358,6 @@ function getTableData(data: any) {
   align-items: start;
   padding: 0 auto;
   gap: 10px;
-
-  @media (max-width: 900px) {
-    width: 100px;
-  }
 }
 
 .contact-contact {
@@ -359,7 +366,7 @@ function getTableData(data: any) {
     font-size: 24px;
   }
   &--value {
-    color: $warning;
+    color: white;
     font-size: 17px;
   }
 }
@@ -372,6 +379,7 @@ function getTableData(data: any) {
   flex-wrap: wrap;
   @media (max-width: 900px) {
     flex-direction: column;
+    align-items: start;
   }
 }
 
